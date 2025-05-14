@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript ES6 Array Methods Practice</title>
+</head>
+<body>
+
+   <h2>Javascript ES6 Array Methods Output</h2>
+  <div id="demo">
+    <div><span>Original Numbers:</span> <span id="original"></span></div>
+    <div><span>Doubled (map):</span> <span id="doubled"></span></div>
+    <div><span>Even Numbers (filter):</span> <span id="even"></span></div>
+    <div><span>Sum (reduce):</span> <span id="sum"></span></div>
+    <div><span>forEach Output:</span> <span id="forEach"></span></div>
+    <div><span>Spliced Array:</span> <span id="spliced"></span></div>
+    <div><span>Person</span> <span id="person"></span></div>
+  </div>
+
+    <script>
+        // Array of numbers
+        const numbers = [1, 2, 3, 4, 5, 6];
+
+        // Mapping - creates new array from calling function of each element in the array
+        const doubled = numbers.map(n => n * 2);
+
+        // Filter method - creates new array as declared by a function
+        const even = numbers.filter(n => n % 2 === 0);
+
+        // Reduce method returns a single value.
+        const sum = numbers.reduce((total, num) => total + num, 0);
+
+        
+        let forEachResult = '';
+        numbers.forEach(num => {
+         forEachResult += `${num} + `;
+        });
+
+        // spread operator ... , splice method , removes 2 items starting at index 2
+        const spliced = [...numbers];
+        spliced.splice(2, 2);
+
+        // Object method
+        const person = {
+         firstName: "John",
+         lastName: "Doe",
+         age: 50,
+         scores: numbers
+        };
+
+    document.getElementById("original").innerHTML = numbers;
+    document.getElementById("doubled").innerHTML = doubled;
+    document.getElementById("even").innerHTML = even;
+    document.getElementById("sum").innerHTML = sum;
+    document.getElementById("forEach").innerHTML = forEachResult;
+    document.getElementById("spliced").innerHTML = spliced;
+    document.getElementById("person").innerHTML = `Name: ${person.firstName} ${person.lastName}, Age: ${person.age}, Scores: ${person.scores.join(", ")}`;
+    </script>
+</body>
+</html>
